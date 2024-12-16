@@ -78,7 +78,7 @@ class _HomePageState extends NyPage<HomePage> {
                         borderRadius: BorderRadius.circular(8),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.1),
+                            color: Colors.grey.withAlpha((255.0 * 0.1).round()),
                             spreadRadius: 1,
                             blurRadius: 9,
                             offset: const Offset(0, 3),

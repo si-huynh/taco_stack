@@ -67,5 +67,5 @@ ThemeData lightTheme(ColorStyles color) {
 TextTheme _textTheme(ColorStyles colors) {
   TextTheme textTheme = const TextTheme().apply(displayColor: colors.content);
   return textTheme.copyWith(
-      labelLarge: TextStyle(color: colors.content.withOpacity(0.8)));
+      labelLarge: TextStyle(color: colors.content.withAlpha((255.0 * 0.8).round())));
 }

@@ -24,7 +24,7 @@ class ToastNotification extends StatelessWidget {
             BoxShadow(
               color: context.isThemeDark
                   ? Colors.transparent
-                  : Colors.grey.withOpacity(0.1),
+                  : Colors.grey.withAlpha((255.0 * 0.1).round()),
               spreadRadius: 3,
               blurRadius: 5,
               offset: const Offset(0, 2),
@@ -72,7 +72,7 @@ class ToastNotification extends StatelessWidget {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ).bodyMedium(
-                              color: context.color.content.withOpacity(0.8)),
+                              color: context.color.content.withAlpha((255.0 * 0.8).round())),
                         ),
                       ],
                     ),

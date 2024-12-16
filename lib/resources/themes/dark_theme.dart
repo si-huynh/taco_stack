@@ -64,8 +64,8 @@ TextTheme _textTheme(ColorStyles colors) {
   TextTheme textTheme = const TextTheme()
       .apply(displayColor: colors.content, bodyColor: colors.content);
   return textTheme.copyWith(
-      titleLarge: TextStyle(color: colors.content.withOpacity(0.8)),
-      labelLarge: TextStyle(color: colors.content.withOpacity(0.8)),
-      bodySmall: TextStyle(color: colors.content.withOpacity(0.8)),
-      bodyMedium: TextStyle(color: colors.content.withOpacity(0.8)));
+      titleLarge: TextStyle(color: colors.content.withAlpha((255.0 * 0.8).round())),
+      labelLarge: TextStyle(color: colors.content.withAlpha((255.0 * 0.8).round())),
+      bodySmall: TextStyle(color: colors.content.withAlpha((255.0 * 0.8).round())),
+      bodyMedium: TextStyle(color: colors.content.withAlpha((255.0 * 0.8).round())));
 }

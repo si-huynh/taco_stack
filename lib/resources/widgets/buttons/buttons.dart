@@ -18,17 +18,15 @@ class Button {
     Function(dynamic error)? onFailure,
     bool showToastError = true,
     Color? color,
-    Widget? loading,
     double? width,
     double height = 50,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
         onSubmit: (onPressed, submitForm),
         onFailure: onFailure,
         showToastError: showToastError,
-        skeletonizerLoading: skeletonizerLoading,
-        loading: loading,
+        loadingStyle: loadingStyle,
         child: (pressed) {
           return PrimaryButton(
             text: text,
@@ -48,17 +46,15 @@ class Button {
     Function(dynamic error)? onFailure,
     bool showToastError = true,
     Color? color,
-    Widget? loading,
     double? width,
     double height = 50,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
         onSubmit: (onPressed, submitForm),
         onFailure: onFailure,
         showToastError: showToastError,
-        skeletonizerLoading: skeletonizerLoading,
-        loading: loading,
+        loadingStyle: loadingStyle,
         child: (pressed) {
           return SecondaryButton(
             text: text,
@@ -81,14 +77,13 @@ class Button {
     Color? textColor,
     double? width,
     double height = 50,
-    bool skeletonizerLoading = true,
-    Widget? loading,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
       onSubmit: (onPressed, submitForm),
       onFailure: onFailure,
       showToastError: showToastError,
-      skeletonizerLoading: skeletonizerLoading,
+      loadingStyle: loadingStyle,
       child: (pressed) {
         return app.OutlinedButton(
           text: text,
@@ -99,7 +94,6 @@ class Button {
           height: height,
         );
       },
-      loading: loading,
     );
   }
 
@@ -113,14 +107,13 @@ class Button {
     Color? textColor,
     double? width,
     double height = 50,
-    Widget? loading,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
         onSubmit: (onPressed, submitForm),
         onFailure: onFailure,
         showToastError: showToastError,
-        skeletonizerLoading: skeletonizerLoading,
+        loadingStyle: loadingStyle,
         child: (pressed) {
           return TextOnlyButton(
             text: text,
@@ -129,8 +122,7 @@ class Button {
             width: width,
             height: height,
           );
-        },
-        loading: loading);
+        });
   }
 
   /// Icon button
@@ -144,14 +136,13 @@ class Button {
     Color? color,
     double? width,
     double height = 50,
-    Widget? loading,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
       onSubmit: (onPressed, submitForm),
       onFailure: onFailure,
       showToastError: showToastError,
-      skeletonizerLoading: skeletonizerLoading,
+      loadingStyle: loadingStyle,
       child: (pressed) {
         return app.IconButton(
           text: text,
@@ -162,7 +153,6 @@ class Button {
           height: height,
         );
       },
-      loading: loading,
     );
   }
 
@@ -176,14 +166,13 @@ class Button {
     List<Color> gradientColors = const [Colors.blue, Colors.purple],
     double? width,
     double height = 50,
-    Widget? loading,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
         onSubmit: (onPressed, submitForm),
         onFailure: onFailure,
         showToastError: showToastError,
-        skeletonizerLoading: skeletonizerLoading,
+        loadingStyle: loadingStyle,
         child: (pressed) {
           return GradientButton(
             text: text,
@@ -192,8 +181,7 @@ class Button {
             width: width,
             height: height,
           );
-        },
-        loading: loading);
+        });
   }
 
   /// Rounded button
@@ -207,14 +195,13 @@ class Button {
     BorderRadius? borderRadius,
     double? width,
     double height = 50,
-    Widget? loading,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
         onSubmit: (onPressed, submitForm),
         onFailure: onFailure,
         showToastError: showToastError,
-        skeletonizerLoading: skeletonizerLoading,
+        loadingStyle: loadingStyle,
         child: (pressed) {
           return RoundedButton(
             text: text,
@@ -224,8 +211,7 @@ class Button {
             width: width,
             height: height,
           );
-        },
-        loading: loading);
+        });
   }
 
   /// Transparency button
@@ -239,14 +225,13 @@ class Button {
     BorderRadius? borderRadius,
     double? width,
     double height = 30,
-    Widget? loading,
-    bool skeletonizerLoading = true,
+    LoadingStyle? loadingStyle,
   }) {
     return ButtonState(
         onSubmit: (onPressed, submitForm),
         onFailure: onFailure,
         showToastError: showToastError,
-        skeletonizerLoading: skeletonizerLoading,
+        loadingStyle: loadingStyle,
         child: (pressed) {
           return TransparencyButton(
             text: text,
@@ -255,7 +240,6 @@ class Button {
             width: width,
             height: height,
           );
-        },
-        loading: loading);
+        });
   }
 }

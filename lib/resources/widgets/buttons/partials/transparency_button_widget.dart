@@ -19,7 +19,7 @@ class TransparencyButton extends AppButton {
     return MaterialButton(
       padding: EdgeInsets.symmetric(vertical: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      color: Colors.white.withOpacity(0.3),
+      color: Colors.white.withAlpha((255.0 * 0.3).round()),
       elevation: 0,
       onPressed: onPressed,
       child: buildButtonChild(

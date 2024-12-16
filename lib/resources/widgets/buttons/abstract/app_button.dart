@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nylo_framework/nylo_framework.dart';
 
 abstract class AppButton extends StatelessWidget {
   final String text;
@@ -47,17 +46,5 @@ abstract class AppButton extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-mixin ButtonActions {
-  void perform(
-      {VoidCallback? onPressed, (String, Function(dynamic data))? submitForm}) {
-    if (submitForm?.$1 != null) {
-      NyForm.submit(submitForm!.$1, onSuccess: (data) {
-        submitForm.$2(data);
-      });
-    }
-    if (onPressed != null) onPressed();
   }
 }
