@@ -57,6 +57,7 @@ If you discover any security related issues, please email support@nylo.dev inste
 * [lepresk](https://github.com/lepresk)
 * [joshua1996](https://github.com/joshua1996)
 * [stensonb](https://github.com/stensonb)
+* [ruwiss](https://github.com/ruwiss)
 
 ## Licence
 
