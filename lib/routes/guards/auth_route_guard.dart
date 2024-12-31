@@ -1,5 +1,6 @@
-import '/resources/pages/home_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+
+import '/resources/pages/home_page.dart';
 
 /* Auth Route Guard
 |--------------------------------------------------------------------------
@@ -16,11 +17,11 @@ class AuthRouteGuard extends NyRouteGuard {
   AuthRouteGuard();
 
   @override
-  onRequest(PageRequest pageRequest) async {
+  Future onRequest(PageRequest pageRequest) async {
     // print(data); // will give you access to the data passed to the route
     // print(queryParameters); // will give you access to the BuildContext
 
-    bool isLoggedIn = (await Auth.isAuthenticated());
+    final isLoggedIn = await Auth.isAuthenticated();
     if (!isLoggedIn) {
       return redirect(HomePage.path);
     }

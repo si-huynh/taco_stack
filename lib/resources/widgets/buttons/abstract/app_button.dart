@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
 abstract class AppButton extends StatelessWidget {
-  final String text;
-  final VoidCallback? onPressed;
-  final double? width;
-  final double height;
-  final (String, Function(dynamic data))? submitForm;
-
   const AppButton({
     super.key,
     required this.text,
@@ -15,6 +9,11 @@ abstract class AppButton extends StatelessWidget {
     this.height = 50,
     this.submitForm,
   });
+  final String text;
+  final VoidCallback? onPressed;
+  final double? width;
+  final double height;
+  final (String, Function())? submitForm;
 
   @override
   Widget build(BuildContext context);

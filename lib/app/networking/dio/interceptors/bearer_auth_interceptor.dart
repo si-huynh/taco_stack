@@ -1,11 +1,12 @@
-import '/config/keys.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+
+import '/config/keys.dart';
 
 class BearerAuthInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    String? userToken = Backpack.instance.read(Keys.auth);
-    options.headers.addAll({"Authorization": "Bearer $userToken"});
+    final userToken = Backpack.instance.read(Keys.auth);
+    options.headers.addAll({'Authorization': 'Bearer $userToken'});
     return super.onRequest(options, handler);
   }
 

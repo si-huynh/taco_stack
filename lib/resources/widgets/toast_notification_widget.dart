@@ -1,6 +1,7 @@
-import '/bootstrap/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+
+import '/bootstrap/extensions.dart';
 
 class ToastNotification extends StatelessWidget {
   const ToastNotification(ToastMeta toastMeta, {Function? onDismiss, super.key})
@@ -15,7 +16,7 @@ class ToastNotification extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
         height: 100,
         decoration: BoxDecoration(
           color: context.color.toastNotificationBackground,
@@ -40,14 +41,13 @@ class ToastNotification extends StatelessWidget {
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   decoration: BoxDecoration(
                     color: _toastMeta.color,
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(8),
-                        topLeft: Radius.circular(8)),
+                        topLeft: Radius.circular(8),),
                   ),
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -65,14 +65,14 @@ class ToastNotification extends StatelessWidget {
                           _toastMeta.title.tr(),
                         ).bodyLarge(
                             color: context.color.content,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold,),
                         Flexible(
                           child: Text(
                             _toastMeta.description,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ).bodyMedium(
-                              color: context.color.content.withAlpha((255.0 * 0.8).round())),
+                              color: context.color.content.withAlpha((255.0 * 0.8).round()),),
                         ),
                       ],
                     ),
@@ -93,8 +93,8 @@ class ToastNotification extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: context.isThemeDark
                         ? Colors.white30
-                        : "#f2f2f2".toHexColor(),
-                    borderRadius: BorderRadius.circular(20)),
+                        : '#f2f2f2'.toHexColor(),
+                    borderRadius: BorderRadius.circular(20),),
                 child: Center(
                   child: IconButton(
                     padding: EdgeInsets.zero,
@@ -107,15 +107,15 @@ class ToastNotification extends StatelessWidget {
                       Icons.close,
                       color: context.isThemeDark
                           ? Colors.white
-                          : "#878787".toHexColor(),
+                          : '#878787'.toHexColor(),
                       size: 18,
                     ),
                   ),
                 ),
               ),
             ),
-          )
-        ]),
+          ),
+        ],),
       ),
     );
   }

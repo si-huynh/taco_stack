@@ -3,7 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class TransparencyButton extends AppButton {
-  final Color? color;
 
   const TransparencyButton({
     super.key,
@@ -13,11 +12,12 @@ class TransparencyButton extends AppButton {
     super.width,
     super.height,
   });
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       color: Colors.white.withAlpha((255.0 * 0.3).round()),
       elevation: 0,

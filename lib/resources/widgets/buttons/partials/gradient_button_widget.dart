@@ -3,7 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class GradientButton extends AppButton {
-  final List<Color> gradientColors;
 
   const GradientButton({
     super.key,
@@ -13,6 +12,7 @@ class GradientButton extends AppButton {
     super.width,
     super.height,
   });
+  final List<Color> gradientColors;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,6 @@ class GradientButton extends AppButton {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: gradientColors,
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
           ),
           borderRadius: BorderRadius.circular(8),
         ),

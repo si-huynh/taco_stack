@@ -3,8 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class RoundedButton extends AppButton {
-  final Color? color;
-  final BorderRadius? borderRadius;
 
   const RoundedButton({
     super.key,
@@ -15,6 +13,8 @@ class RoundedButton extends AppButton {
     super.width,
     super.height,
   });
+  final Color? color;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {

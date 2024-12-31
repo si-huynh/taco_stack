@@ -3,7 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class TextOnlyButton extends AppButton {
-  final Color? textColor;
 
   const TextOnlyButton({
     super.key,
@@ -14,6 +13,7 @@ class TextOnlyButton extends AppButton {
     super.width,
     super.height,
   });
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {

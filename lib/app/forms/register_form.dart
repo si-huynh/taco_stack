@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 /* Register Form
@@ -8,16 +9,32 @@ import 'package:nylo_framework/nylo_framework.dart';
 |-------------------------------------------------------------------------- */
 
 class RegisterForm extends NyFormData {
-  RegisterForm({String? name}) : super(name ?? "register");
+  RegisterForm({String? name}) : super(name ?? 'register');
 
   @override
-  fields() => [
-        Field.text("Name",
-            autofocus: true,
-            validate: FormValidator.notEmpty(),
-            style: "compact"),
-        Field.email("Email", validate: FormValidator.email(), style: "compact"),
-        Field.password("Password",
-            validate: FormValidator.password(strength: 1), style: "compact"),
+  List<Field> fields() => [
+        Field.text(
+          'First Name',
+          autofocus: true,
+          validate: FormValidator.notEmpty(),
+          style: 'default',
+        ),
+        Field.text(
+          'Last Name',
+          validate: FormValidator.notEmpty(),
+          style: 'default',
+        ),
+        Field.text(
+          'Email',
+          validate: FormValidator.email(),
+          prefixIcon: const Icon(Icons.email),
+          style: 'default',
+        ),
+        Field.text(
+          'Password',
+          validate: FormValidator.password(),
+          style: 'default'.extend(),
+          prefixIcon: const Icon(Icons.lock),
+        ),
       ];
 }

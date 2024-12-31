@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '/resources/widgets/splash_screen.dart';
+import 'package:nylo_framework/nylo_framework.dart';
+
 import '/bootstrap/app.dart';
 import '/config/providers.dart';
-import 'package:nylo_framework/nylo_framework.dart';
+import '/resources/widgets/splash_screen.dart';
 
 /* Boot
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ class Boot {
     }
 
     await _setup();
-    return await bootApplication(providers);
+    return bootApplication(providers);
   }
 
   /// This method is called after Nylo is initialized.
@@ -37,7 +38,7 @@ class Boot {
 | It's run before your app providers are booted.
 |-------------------------------------------------------------------------- */
 
-_setup() async {
+Future<void> _setup() async {
   /// Example: Initializing StorageConfig
   // StorageConfig.init(
   //   androidOptions: AndroidOptions(

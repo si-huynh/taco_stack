@@ -1,5 +1,6 @@
-import '/app/events/logout_event.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+
+import '/app/events/logout_event.dart';
 
 /* Events
 |--------------------------------------------------------------------------

@@ -3,8 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class OutlinedButton extends AppButton {
-  final Color? borderColor;
-  final Color? textColor;
 
   const OutlinedButton({
     super.key,
@@ -15,6 +13,8 @@ class OutlinedButton extends AppButton {
     super.width,
     super.height,
   });
+  final Color? borderColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class OutlinedButton extends AppButton {
         textColor: textColor ?? context.color.content,
         backgroundColor: Colors.transparent,
         border: Border.all(
-            color: borderColor ?? context.color.buttonBackground, width: 2),
+            color: borderColor ?? context.color.buttonBackground, width: 2,),
       ),
     );
   }

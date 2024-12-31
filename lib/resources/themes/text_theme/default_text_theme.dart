@@ -5,48 +5,48 @@ import 'package:flutter/material.dart';
 
 const TextTheme defaultTextTheme = TextTheme(
   titleLarge: TextStyle(
-    fontSize: 20.0,
+    fontSize: 20,
     fontWeight: FontWeight.w600,
   ),
   headlineSmall: TextStyle(
-    fontSize: 22.0,
+    fontSize: 22,
   ),
   headlineMedium: TextStyle(
-    fontSize: 24.0,
+    fontSize: 24,
     fontWeight: FontWeight.w600,
   ),
   displaySmall: TextStyle(
-    fontSize: 26.0,
+    fontSize: 26,
     fontWeight: FontWeight.w700,
   ),
   displayMedium: TextStyle(
-    fontSize: 28.0,
+    fontSize: 28,
     fontWeight: FontWeight.w600,
   ),
   displayLarge: TextStyle(
-    fontSize: 36.0,
+    fontSize: 36,
     fontWeight: FontWeight.w300,
   ),
   titleSmall: TextStyle(
-    fontSize: 14.0,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
   ),
   titleMedium: TextStyle(
-    fontSize: 16.0,
+    fontSize: 16,
     fontWeight: FontWeight.w500,
   ),
   labelSmall: TextStyle(
-    fontSize: 10.0,
+    fontSize: 10,
     fontWeight: FontWeight.w400,
   ),
   labelLarge: TextStyle(),
   bodyLarge: TextStyle(
-    fontSize: 18.0,
+    fontSize: 18,
   ),
   bodyMedium: TextStyle(
     fontSize: 15.5,
   ),
   bodySmall: TextStyle(
-    fontSize: 13.0,
+    fontSize: 13,
   ),
 );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import '/config/decoders.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+import '/config/decoders.dart';
 
 /* ApiService
 | -------------------------------------------------------------------------
@@ -26,23 +27,23 @@ class ApiService extends NyApiService {
   String get baseUrl => getEnv('API_BASE_URL');
 
   @override
-  get interceptors => {
+  Map<Type, Interceptor> get interceptors => {
         if (getEnv('APP_DEBUG') == true) PrettyDioLogger: PrettyDioLogger(),
         // MyCustomInterceptor: MyCustomInterceptor(),
       };
 
   Future fetchTestData() async {
-    return await network(
-      request: (request) => request.get("/endpoint-path"),
+    return network(
+      request: (request) => request.get('/endpoint-path'),
     );
   }
 
   /// Example to fetch the Nylo repository info from Github
   Future githubInfo() async {
-    return await network(
+    return network(
       request: (request) =>
-          request.get("https://api.github.com/repos/nylo-core/nylo"),
-      cacheKey: "github_nylo_info", // Optional: Cache the response
+          request.get('https://api.github.com/repos/nylo-core/nylo'),
+      cacheKey: 'github_nylo_info', // Optional: Cache the response
       cacheDuration: const Duration(hours: 1),
     );
   }

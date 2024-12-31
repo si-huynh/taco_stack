@@ -4,8 +4,8 @@
 # Official repository: https://github.com/nylo-core/nylo
 # Author: Anthony Gordon <https://github.com/agordn52>
 
-name: flutter_app
-description: A new Nylo Flutter application.
+name: taco_stack_app
+description: the app allows users to fill out weekly reports and daily standup.
 
 publish_to: 'none'
 
@@ -30,13 +30,15 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  supabase_flutter: ^2.8.2
+  gap: ^3.0.1
 
 dev_dependencies:
   rename: ^3.0.2
   flutter_launcher_icons: ^0.14.1
   # The following line 'flutter_lints' activates a set of recommended lints for Flutter apps,
   # packages, and plugins designed to encourage good coding practices.
-#  flutter_lints: ^5.0.0
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
 

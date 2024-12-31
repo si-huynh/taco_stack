@@ -3,8 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class IconButton extends AppButton {
-  final Widget icon;
-  final Color? color;
 
   const IconButton({
     super.key,
@@ -15,6 +13,8 @@ class IconButton extends AppButton {
     super.width,
     super.height,
   });
+  final Widget icon;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {

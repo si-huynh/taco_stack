@@ -1,13 +1,16 @@
-import 'package:flutter/material.dart';
-import '/resources/widgets/logo_widget.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
+import '/resources/widgets/logo_widget.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   /// Create a new instance of the MaterialApp
   static MaterialApp app() {
-    return MaterialApp(
+    return const MaterialApp(
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
@@ -18,10 +21,14 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Logo(), SizedBox(height: 50), AnimatedLoader()],
+            children: [
+              Logo(),
+              Gap(50),
+              AnimatedLoader(),
+            ],
           ),
         ),
       ),
@@ -30,20 +37,19 @@ class SplashScreen extends StatelessWidget {
 }
 
 class AnimatedLoader extends StatefulWidget {
-  final double size;
-  final Color color;
-
   const AnimatedLoader({
     super.key,
     this.size = 50.0,
-    this.color = Colors.blue,
+    this.color = const Color(0xff7d570e),
   });
+  final double size;
+  final Color color;
 
   @override
-  createState() => _AnimatedLoaderState();
+  AnimatedLoaderState createState() => AnimatedLoaderState();
 }
 
-class _AnimatedLoaderState extends State<AnimatedLoader>
+class AnimatedLoaderState extends State<AnimatedLoader>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -80,7 +86,7 @@ class _AnimatedLoaderState extends State<AnimatedLoader>
 
   Widget _buildPulsatingCircle() {
     return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0.8, end: 1.0),
+      tween: Tween(begin: 0.8, end: 1),
       duration: const Duration(milliseconds: 750),
       curve: Curves.easeInOut,
       builder: (context, value, child) {
@@ -89,7 +95,7 @@ class _AnimatedLoaderState extends State<AnimatedLoader>
           child: Container(
             width: widget.size,
             height: widget.size,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
           ),
@@ -104,8 +110,8 @@ class _AnimatedLoaderState extends State<AnimatedLoader>
       child: Stack(
         alignment: Alignment.center,
         children: List.generate(8, (index) {
-          final double angle = (index / 8) * 2 * pi;
-          final double offset = widget.size * 0.35;
+          final angle = (index / 8) * 2 * pi;
+          final offset = widget.size * 0.35;
           return Transform(
             transform: Matrix4.identity()
               ..translate(
@@ -120,9 +126,8 @@ class _AnimatedLoaderState extends State<AnimatedLoader>
   }
 
   Widget _buildDot(int index) {
-    final double dotSize = widget.size * 0.1;
-    final double scaleFactor =
-        0.5 + (1 - _controller.value + index / 8) % 1 * 0.5;
+    final dotSize = widget.size * 0.1;
+    final scaleFactor = 0.5 + (1 - _controller.value + index / 8) % 1 * 0.5;
     return Transform.scale(
       scale: scaleFactor,
       child: Container(

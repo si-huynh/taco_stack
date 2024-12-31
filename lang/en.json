@@ -1,6 +1,7 @@
 {
-  "documentation": "documentation",
-  "changelog": "changelog",
-  "micro-framework for Flutter": "micro-framework for Flutter",
-  "hello": "hello {{name}}"
+  "alreadyHaveAnAccount": "Already have an account?",
+  "createAnAccount": "Create an account",
+  "login": "Login",
+  "orSignUpWith": "Or sign up with",
+  "signUpFooter": "By clicking Create account you agree to TacoStack's Terms of use and Privacy policy"
 }

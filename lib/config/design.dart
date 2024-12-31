@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:nylo_framework/nylo_framework.dart';
+
 import '/config/toast_notification_styles.dart';
 import '/resources/widgets/loader_widget.dart';
 import '/resources/widgets/logo_widget.dart';
 import '/resources/widgets/toast_notification_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:nylo_framework/nylo_framework.dart';
 
 /* Design
 |--------------------------------------------------------------------------
@@ -19,7 +20,6 @@ import 'package:nylo_framework/nylo_framework.dart';
 | -------------------------------------------------------------------------- */
 
 final TextStyle appFont = GoogleFonts.outfit();
-// e.g. final TextStyle appThemeFont = GoogleFonts.lato();
 
 /* App Logo
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ final TextStyle appFont = GoogleFonts.outfit();
 | Use the Logo() widget or Nylo.getAppLogo() display your logo
 | -------------------------------------------------------------------------- */
 
-final Widget logo = const Logo();
+const Widget logo = Logo();
 // File: resources/widgets/logo_widget.dart
 
 /* Loader
@@ -36,7 +36,7 @@ final Widget logo = const Logo();
 | Use the Loader() widget or Nylo.getAppLoader() display your loader
 | -------------------------------------------------------------------------- */
 
-final Widget loader = const Loader();
+const Widget loader = Loader();
 // File: resources/widgets/loader_widget.dart
 
 /* Toast Notification
@@ -45,14 +45,16 @@ final Widget loader = const Loader();
 | Here you can handle the toast notification style.
 | -------------------------------------------------------------------------- */
 
-Widget getToastNotificationWidget(
-    {required ToastNotificationStyleType style,
-    Function(ToastNotificationStyleMetaHelper helper)?
-        toastNotificationStyleMeta,
-    Function? onDismiss}) {
-  if (toastNotificationStyleMeta == null) return const SizedBox.shrink();
+Widget getToastNotificationWidget({
+  required ToastNotificationStyleType style,
+  Function(ToastNotificationStyleMetaHelper helper)? toastNotificationStyleMeta,
+  Function? onDismiss,
+}) {
+  if (toastNotificationStyleMeta == null) {
+    return const SizedBox.shrink();
+  }
 
-  ToastMeta toastMeta =
+  final ToastMeta toastMeta =
       toastNotificationStyleMeta(NyToastNotificationStyleMetaHelper(style));
 
   return ToastNotification(toastMeta, onDismiss: onDismiss);

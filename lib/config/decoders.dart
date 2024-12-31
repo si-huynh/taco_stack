@@ -13,10 +13,9 @@ import '/app/networking/api_service.dart';
 final Map<Type, dynamic> modelDecoders = {
   Map<String, dynamic>: (data) => Map<String, dynamic>.from(data),
 
-  List<User>: (data) =>
-      List.from(data).map((json) => User.fromJson(json)).toList(),
+  List<User>: (data) => List.from(data).map(User.fromJson).toList(),
   //
-  User: (data) => User.fromJson(data),
+  User: User.fromJson,
 
   // User: (data) => User.fromJson(data),
 };
@@ -30,7 +29,7 @@ final Map<Type, dynamic> modelDecoders = {
 |-------------------------------------------------------------------------- */
 
 final Map<Type, dynamic> apiDecoders = {
-  ApiService: () => ApiService(),
+  ApiService: ApiService.new,
 
   // ...
 };
@@ -42,7 +41,7 @@ final Map<Type, dynamic> apiDecoders = {
 | Learn more https://nylo.dev/docs/6.x/controllers
 |-------------------------------------------------------------------------- */
 final Map<Type, dynamic> controllers = {
-  HomeController: () => HomeController(),
+  HomeController: HomeController.new,
 
   // ...
 };

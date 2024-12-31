@@ -3,7 +3,6 @@ import '/bootstrap/extensions.dart';
 import '/resources/widgets/buttons/abstract/app_button.dart';
 
 class PrimaryButton extends AppButton {
-  final Color? color;
 
   const PrimaryButton({
     super.key,
@@ -13,6 +12,7 @@ class PrimaryButton extends AppButton {
     super.width,
     super.height,
   });
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {

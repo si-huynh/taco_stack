@@ -10,22 +10,22 @@ class NyToastNotificationStyleMetaHelper
   NyToastNotificationStyleMetaHelper(super.style);
 
   @override
-  onSuccess() {
+  ToastMeta onSuccess() {
     return ToastMeta.success();
   }
 
   @override
-  onWarning() {
+  ToastMeta onWarning() {
     return ToastMeta.warning();
   }
 
   @override
-  onInfo() {
+  ToastMeta onInfo() {
     return ToastMeta.info();
   }
 
   @override
-  onDanger() {
+  ToastMeta onDanger() {
     return ToastMeta.danger();
   }
 
