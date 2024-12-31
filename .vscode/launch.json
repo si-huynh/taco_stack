@@ -6,18 +6,18 @@
     "configurations": [
         
         {
-            "name": "taco_stack",
+            "name": "Launch Debug",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "taco_stack (profile mode)",
+            "name": "Launch Profile",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "taco_stack (release mode)",
+            "name": "Launch Release",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
