@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   supabase_flutter: ^2.8.2
   gap: ^3.0.1
+  json_serializable: ^6.9.2
 
 dev_dependencies:
   rename: ^3.0.2
@@ -41,6 +42,8 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+  json_annotation: ^4.9.0
+  build_runner: ^2.4.14
 
 # APP ICON - public/app_icon/icon.png
 # Build icons: "dart run flutter_launcher_icons"

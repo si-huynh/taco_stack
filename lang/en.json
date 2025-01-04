@@ -1,7 +1,13 @@
 {
   "alreadyHaveAnAccount": "Already have an account?",
+  "continue": "Continue",
   "createAnAccount": "Create an account",
-  "login": "Login",
   "orSignUpWith": "Or sign up with",
-  "signUpFooter": "By clicking Create account you agree to TacoStack's Terms of use and Privacy policy"
+  "settings": "Settings",
+  "signUpFooter": "By clicking Create account you agree to TacoStack's Terms of use and Privacy policy",
+  "signIn": "Sign in",
+  "signOut": "Sign out",
+  "signUp": "Sign up",
+  "home": "Home",
+  "profile": "Profile"
 }

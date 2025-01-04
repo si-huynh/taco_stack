@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '/bootstrap/app.dart';
 import '/config/providers.dart';
@@ -19,6 +20,11 @@ class Boot {
     if (getEnv('SHOW_SPLASH_SCREEN', defaultValue: false)) {
       runApp(SplashScreen.app());
     }
+
+    await Supabase.initialize(
+      url: getEnv('SUPABASE_PROJECT_URL'),
+      anonKey: getEnv('SUPABASE_ANON_PUBLIC_KEY'),
+    );
 
     await _setup();
     return bootApplication(providers);

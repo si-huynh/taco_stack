@@ -1,4 +1,6 @@
-import '/app/controllers/home_controller.dart';
+import '/app/controllers/authentication_controller.dart';
+import '/app/controllers/dashboard_controller.dart';
+import '/app/controllers/settings_controller.dart';
 import '/app/models/user.dart';
 import '/app/networking/api_service.dart';
 
@@ -41,7 +43,7 @@ final Map<Type, dynamic> apiDecoders = {
 | Learn more https://nylo.dev/docs/6.x/controllers
 |-------------------------------------------------------------------------- */
 final Map<Type, dynamic> controllers = {
-  HomeController: HomeController.new,
-
-  // ...
+  AuthenticationController: AuthenticationController.new,
+  SettingsController: SettingsController.new,
+  DashboardController: DashboardController.new,
 };

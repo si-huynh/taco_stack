@@ -12,15 +12,22 @@ class RegisterForm extends NyFormData {
   RegisterForm({String? name}) : super(name ?? 'register');
 
   @override
-  List<Field> fields() => [
+  List<Object> fields() => [
+        [
+          Field.text(
+            'First Name',
+            autofocus: true,
+            validate: FormValidator.notEmpty(),
+            style: 'default',
+          ),
+          Field.text(
+            'Last Name',
+            validate: FormValidator.notEmpty(),
+            style: 'default',
+          ),
+        ],
         Field.text(
-          'First Name',
-          autofocus: true,
-          validate: FormValidator.notEmpty(),
-          style: 'default',
-        ),
-        Field.text(
-          'Last Name',
+          'Department',
           validate: FormValidator.notEmpty(),
           style: 'default',
         ),

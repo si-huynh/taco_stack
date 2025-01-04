@@ -1,6 +1,5 @@
 import 'package:nylo_framework/nylo_framework.dart';
-
-import '/resources/pages/home_page.dart';
+import 'package:taco_stack_app/resources/pages/base_navigation_hub.dart';
 
 /* Auth Route Guard
 |--------------------------------------------------------------------------
@@ -23,7 +22,7 @@ class AuthRouteGuard extends NyRouteGuard {
 
     final isLoggedIn = await Auth.isAuthenticated();
     if (!isLoggedIn) {
-      return redirect(HomePage.path);
+      return redirect(BaseNavigationHub.path);
     }
 
     return pageRequest;
