@@ -5,6 +5,7 @@ import 'package:taco_stack_app/app/controllers/dashboard_controller.dart';
 import 'package:taco_stack_app/app/models/weekly_report.dart';
 import 'package:taco_stack_app/resources/pages/weekly_report_form_page.dart';
 import 'package:taco_stack_app/resources/themes/styles/custom/util.dart';
+import 'package:taco_stack_app/resources/widgets/select_period_bottom_sheet.dart';
 
 class WeeklyReportPanelWidget extends StatelessWidget {
   const WeeklyReportPanelWidget({
@@ -25,10 +26,18 @@ class WeeklyReportPanelWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(),
-            Text(
-              trans('thisWeek'),
-              style: context.textTheme().headlineSmall,
+            Row(
+              children: [
+                Text(
+                  trans('thisWeek'),
+                  style: context.textTheme().headlineSmall,
+                ),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.arrow_drop_down_circle),
+                  onPressed: () => _onSelectWeekButtonPressed(context),
+                ),
+              ],
             ),
             const Gap(8),
             if (data.id.isNotEmpty) ...[
@@ -126,4 +135,11 @@ class WeeklyReportPanelWidget extends StatelessWidget {
           }
         },
       );
+
+  Future<void> _onSelectWeekButtonPressed(BuildContext context) async {
+    final period = await SelectPeriodBottomSheet.show(context);
+    if (period != null) {
+      await controller.loadWeeklyReport(period);
+    }
+  }
 }

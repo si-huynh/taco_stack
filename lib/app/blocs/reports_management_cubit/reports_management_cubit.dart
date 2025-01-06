@@ -28,7 +28,7 @@ class ReportsManagementCubit extends Cubit<ReportsManagementState> {
 
   final _supaBaseClient = Supabase.instance.client;
 
-  final int _weekNo;
+  int _weekNo;
 
   DailyStandup? get today => state.dailyStandups
       .where(
@@ -85,6 +85,28 @@ class ReportsManagementCubit extends Cubit<ReportsManagementState> {
           status: ReportsManagementStateStatus.loaded,
         ),
       );
+    }
+  }
+
+  Future<void> fetchWeeklyReport(DateTime period) async {
+    try {
+      _weekNo = period.weekOfYear;
+      emit(
+        state.copyWith(
+          weeklyReport: WeeklyReport.placeholder(period),
+          dailyStandups: List.generate(7, (index) {
+            final monday = period.mostRecentMonday;
+            return DailyStandup.placeholder(
+              monday.add(Duration(days: index)),
+            );
+          }),
+        ),
+      );
+      await fetchDailyStandup();
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 

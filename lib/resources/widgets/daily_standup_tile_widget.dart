@@ -19,14 +19,17 @@ class DailyStandupTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var title = trans('today');
+    Color? color = context.theme.colorScheme.surfaceContainer;
     if (!data.date.isSameDay(DateTime.now())) {
       title = data.date.toFormat('EEEE')!;
+      color = null;
     }
     if (data.isSkipped) {
       title += ' (Skipped)';
     }
     return Card.outlined(
       margin: const EdgeInsets.symmetric(horizontal: 16),
+      color: color,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -63,7 +66,6 @@ class DailyStandupTileWidget extends StatelessWidget {
                     ),
               ),
             const Gap(8),
-            const Divider(),
             _buildActionButtons(),
           ],
         ),

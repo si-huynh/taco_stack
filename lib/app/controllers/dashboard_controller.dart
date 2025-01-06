@@ -37,4 +37,8 @@ class DashboardController extends Controller {
     await _reportsManagementCubit.collectTaco(id, from);
     await _userInfoCubit.calculateTaco(1);
   }
+
+  Future<void> loadWeeklyReport(DateTime period) async {
+    await _reportsManagementCubit.fetchWeeklyReport(period);
+  }
 }
