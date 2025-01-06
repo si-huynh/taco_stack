@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:taco_stack_app/app/forms/daily_standup_form.dart';
+import 'package:taco_stack_app/app/models/daily_standup.dart';
 import 'package:taco_stack_app/resources/widgets/buttons/buttons.dart';
 import '/app/controllers/daily_standup_form_controller.dart';
 
@@ -18,8 +19,22 @@ class _DailyStandupFormPageState extends NyState<DailyStandupFormPage> {
 
   final _form = DailyStandupForm();
 
+  bool _isUpdated = false;
+
   @override
-  Null Function() get init => () {};
+  Null Function() get init => () {
+        if (widget.data() != null) {
+          final report = DailyStandup.fromJson(widget.data());
+          _form.initialData(
+            () => {
+              'progress': report.progress,
+              'challenges': report.challenges,
+              'planForTomorrow': report.planForTomorrow,
+            },
+          );
+          _isUpdated = report.id.isNotEmpty;
+        }
+      };
 
   @override
   LoadingStyle get loadingStyle => LoadingStyle.normal();
@@ -36,7 +51,7 @@ class _DailyStandupFormPageState extends NyState<DailyStandupFormPage> {
           children: [
             Text(trans('dailyStandupForm')),
             Text(
-              formatter.format(DateTime.parse(widget.data())),
+              formatter.format(DateTime.parse(widget.data()['date'])),
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
@@ -47,7 +62,7 @@ class _DailyStandupFormPageState extends NyState<DailyStandupFormPage> {
         child: NyForm(
           form: _form,
           footer: Button.primary(
-            text: trans('submit'),
+            text: trans(_isUpdated ? 'update' : 'submit'),
             submitForm: (_form, _onSubmit),
           ),
           locked: isLoading(),
@@ -58,8 +73,12 @@ class _DailyStandupFormPageState extends NyState<DailyStandupFormPage> {
 
   Future<void> _onSubmit(data) async {
     setLoading(true, resetState: false);
-    final date = DateTime.parse(widget.data());
-    final result = await controller.submitForm(data, date);
+    final date = DateTime.parse(widget.data()['date']);
+    final result = await controller.submitForm(
+      data,
+      date,
+      id: widget.data()['id'],
+    );
     setLoading(false, resetState: false);
     result.fold(
       (success) => pop(result: success),

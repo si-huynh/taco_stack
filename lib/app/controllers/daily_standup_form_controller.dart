@@ -21,9 +21,13 @@ class DailyStandupFormController extends Controller {
 
   Future<Either<DailyStandup, String>> submitForm(
     Map<String, dynamic> data,
-    DateTime date,
-  ) async {
+    DateTime date, {
+    String id = '',
+  }) async {
     await Future.delayed(const Duration(seconds: 1));
+    if (id.isNotEmpty) {
+      return _reportsManagementCubit.updateDailyStandup(data, id);
+    }
     return _reportsManagementCubit.createDailyStandup(data, date);
   }
 }

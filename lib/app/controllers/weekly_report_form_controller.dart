@@ -21,9 +21,13 @@ class WeeklyReportFormController extends Controller {
 
   Future<Either<WeeklyReport, String>> submitForm(
     Map<String, dynamic> data,
-    DateTime date,
-  ) async {
+    DateTime date, {
+    String id = '',
+  }) async {
     await Future.delayed(const Duration(seconds: 1));
+    if (id.isNotEmpty) {
+      return _reportsManagementCubit.updateWeeklyReport(data, id);
+    }
     return _reportsManagementCubit.createWeeklyReport(data, date);
   }
 }

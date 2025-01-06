@@ -130,11 +130,19 @@ class _DashboardPageState extends NyState<DashboardPage> {
               children: [
                 if (data.id.isEmpty)
                   FilledButton(
-                    onPressed: () => _onAddNewDailyStandup(data.date),
+                    onPressed: () => _onAddNewDailyStandup(data: data.toJson()),
                     style: OutlinedButton.styleFrom(
                       visualDensity: VisualDensity.compact,
                     ),
                     child: Text(trans('add')),
+                  ),
+                if (data.id.isNotEmpty && !data.isSkipped)
+                  FilledButton(
+                    onPressed: () => _onAddNewDailyStandup(data: data.toJson()),
+                    style: OutlinedButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    child: Text(trans('update')),
                   ),
                 if (data.id.isEmpty && !data.isSkipped)
                   FilledButton.tonal(
@@ -222,6 +230,15 @@ class _DashboardPageState extends NyState<DashboardPage> {
                         visualDensity: VisualDensity.compact,
                       ),
                       child: Text(trans('add')),
+                    )
+                  else
+                    FilledButton(
+                      onPressed: () =>
+                          _onAddNewWeeklyReport(data: data.toJson()),
+                      style: OutlinedButton.styleFrom(
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      child: Text(trans('update')),
                     ),
                   if (data.id.isEmpty && !data.isSkipped)
                     FilledButton.tonal(
@@ -253,9 +270,9 @@ class _DashboardPageState extends NyState<DashboardPage> {
     );
   }
 
-  void _onAddNewDailyStandup(DateTime date) => routeTo(
+  void _onAddNewDailyStandup({data}) => routeTo(
         DailyStandupFormPage.path,
-        data: date.toIso8601String(),
+        data: data,
         onPop: (value) {
           if (value != null) {
             controller.loadDailyStandups();
@@ -264,7 +281,8 @@ class _DashboardPageState extends NyState<DashboardPage> {
         },
       );
 
-  void _onAddNewWeeklyReport() => routeTo(
+  void _onAddNewWeeklyReport({data}) => routeTo(
+        data: data,
         WeeklyReportFormPage.path,
         onPop: (value) {
           if (value != null) {

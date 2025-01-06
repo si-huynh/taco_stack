@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:taco_stack_app/app/forms/weekly_report_form.dart';
+import 'package:taco_stack_app/app/models/weekly_report.dart';
 import 'package:taco_stack_app/resources/widgets/buttons/buttons.dart';
 import '/app/controllers/weekly_report_form_controller.dart';
 
@@ -18,9 +19,23 @@ class _WeeklyReportFormPageState extends NyState<WeeklyReportFormPage> {
   WeeklyReportFormController get controller => widget.controller;
 
   final _form = WeeklyReportForm();
+  bool _isUpdated = false;
 
   @override
-  Null Function() get init => () {};
+  Null Function() get init => () {
+        if (widget.data() != null) {
+          final report = WeeklyReport.fromJson(widget.data());
+          _form.initialData(
+            () => {
+              'summary': report.summary,
+              'tasksCompleted': report.tasksCompleted,
+              'challengesFaced': report.challengesFaced,
+              'nextWeekPlan': report.nextWeekPlan,
+            },
+          );
+          _isUpdated = true;
+        }
+      };
 
   @override
   LoadingStyle get loadingStyle => LoadingStyle.normal();
@@ -48,7 +63,7 @@ class _WeeklyReportFormPageState extends NyState<WeeklyReportFormPage> {
         child: NyForm(
           form: _form,
           footer: Button.primary(
-            text: trans('submit'),
+            text: trans(_isUpdated ? 'update' : 'submit'),
             submitForm: (_form, _onSubmit),
           ),
           locked: isLoading(),
@@ -60,7 +75,11 @@ class _WeeklyReportFormPageState extends NyState<WeeklyReportFormPage> {
   Future<void> _onSubmit(data) async {
     setLoading(true, resetState: false);
     final date = DateTime.now();
-    final result = await controller.submitForm(data, date);
+    final result = await controller.submitForm(
+      data,
+      date,
+      id: _isUpdated ? widget.data()['id'] : '',
+    );
     setLoading(false, resetState: false);
     result.fold(
       (success) => pop(result: success),

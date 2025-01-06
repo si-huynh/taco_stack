@@ -127,6 +127,44 @@ class ReportsManagementCubit extends Cubit<ReportsManagementState> {
     }
   }
 
+  Future<Either<WeeklyReport, String>> updateWeeklyReport(
+    Map<String, dynamic> data,
+    String id,
+  ) async {
+    try {
+      final response = await _supaBaseClient
+          .from('weekly_reports')
+          .update(data)
+          .eq('id', id)
+          .select();
+      return left(WeeklyReport.fromJson(response.first));
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      return right(e.toString());
+    }
+  }
+
+  Future<Either<DailyStandup, String>> updateDailyStandup(
+    Map<String, dynamic> data,
+    String id,
+  ) async {
+    try {
+      final response = await _supaBaseClient
+          .from('daily_standups')
+          .update(data)
+          .eq('id', id)
+          .select();
+      return left(DailyStandup.fromJson(response.first));
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      return right(e.toString());
+    }
+  }
+
   Future<void> skip(DateTime date) async {
     try {
       await _supaBaseClient.from('daily_standups').insert({
