@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '/bootstrap/app.dart';
@@ -45,11 +47,13 @@ class Boot {
 |-------------------------------------------------------------------------- */
 
 Future<void> _setup() async {
-  /// Example: Initializing StorageConfig
-  // StorageConfig.init(
-  //   androidOptions: AndroidOptions(
-  //     resetOnError: true,
-  //     encryptedSharedPreferences: false
-  //   )
-  // );
+  StorageConfig.init(
+    androidOptions: const AndroidOptions(
+      resetOnError: true,
+    ),
+  );
+  // HydratedBloc
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationDocumentsDirectory(),
+  );
 }

@@ -24,7 +24,7 @@ TextTheme createTextTheme(
 extension DesignThemeContext on BuildContext {
   ThemeData get theme => Theme.of(this);
 
-  TextTheme get textTheme => theme.textTheme;
+  //TextTheme get textTheme => theme.textTheme;
 }
 
 extension DimensionContext on BuildContext {

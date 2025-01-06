@@ -1,7 +1,8 @@
 import '/app/controllers/authentication_controller.dart';
+import '/app/controllers/daily_standup_form_controller.dart';
 import '/app/controllers/dashboard_controller.dart';
 import '/app/controllers/settings_controller.dart';
-import '/app/models/user.dart';
+import '/app/controllers/weekly_report_form_controller.dart';
 import '/app/networking/api_service.dart';
 
 /* Model Decoders
@@ -14,12 +15,6 @@ import '/app/networking/api_service.dart';
 
 final Map<Type, dynamic> modelDecoders = {
   Map<String, dynamic>: (data) => Map<String, dynamic>.from(data),
-
-  List<User>: (data) => List.from(data).map(User.fromJson).toList(),
-  //
-  User: User.fromJson,
-
-  // User: (data) => User.fromJson(data),
 };
 
 /* API Decoders
@@ -46,4 +41,6 @@ final Map<Type, dynamic> controllers = {
   AuthenticationController: AuthenticationController.new,
   SettingsController: SettingsController.new,
   DashboardController: DashboardController.new,
+  DailyStandupFormController: DailyStandupFormController.new,
+  WeeklyReportFormController: WeeklyReportFormController.new,
 };

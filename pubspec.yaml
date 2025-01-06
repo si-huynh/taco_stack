@@ -15,6 +15,7 @@ environment:
   sdk: '>=3.4.0 <4.0.0'
   flutter: ">=3.24.0 <4.0.0"
 dependencies:
+  dartz: ^0.10.1
   url_launcher: ^6.2.6
   google_fonts: ^6.2.1
   analyzer: ^6.7.0
@@ -32,7 +33,12 @@ dependencies:
     sdk: flutter
   supabase_flutter: ^2.8.2
   gap: ^3.0.1
-  json_serializable: ^6.9.2
+  json_annotation: ^4.9.0
+  json_serializable: ^6.9.0
+  flutter_bloc: ^8.1.6
+  hydrated_bloc: ^9.1.5
+  freezed: ^2.5.7
+  app_settings: ^5.1.1
 
 dev_dependencies:
   rename: ^3.0.2
@@ -42,8 +48,8 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  json_annotation: ^4.9.0
   build_runner: ^2.4.14
+  flutter_gen_runner: ^5.8.0
 
 # APP ICON - public/app_icon/icon.png
 # Build icons: "dart run flutter_launcher_icons"
@@ -67,6 +73,10 @@ flutter:
   assets:
     - public/fonts/
     - public/images/
+    - public/images/avatars/
     - public/app_icon/
     - lang/
     - .env
+
+flutter_gen:
+  output: lib/src/gen

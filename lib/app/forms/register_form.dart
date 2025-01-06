@@ -15,30 +15,30 @@ class RegisterForm extends NyFormData {
   List<Object> fields() => [
         [
           Field.text(
-            'First Name',
+            trans('firstName'),
             autofocus: true,
             validate: FormValidator.notEmpty(),
             style: 'default',
           ),
           Field.text(
-            'Last Name',
+            trans('lastName'),
             validate: FormValidator.notEmpty(),
             style: 'default',
           ),
         ],
         Field.text(
-          'Department',
+          trans('department'),
           validate: FormValidator.notEmpty(),
           style: 'default',
         ),
         Field.text(
-          'Email',
+          trans('email'),
           validate: FormValidator.email(),
           prefixIcon: const Icon(Icons.email),
           style: 'default',
         ),
         Field.text(
-          'Password',
+          trans('password'),
           validate: FormValidator.password(),
           style: 'default'.extend(),
           prefixIcon: const Icon(Icons.lock),

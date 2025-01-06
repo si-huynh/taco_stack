@@ -14,13 +14,13 @@ class LoginForm extends NyFormData {
   @override
   List<Field> fields() => [
         Field.text(
-          'Email',
+          trans('email'),
           autofocus: true,
           validate: FormValidator.rule('email'),
           prefixIcon: const Icon(Icons.email),
         ),
         Field.text(
-          'Password',
+          trans('password'),
           validate: FormValidator.notEmpty(),
           prefixIcon: const Icon(Icons.password),
         ),

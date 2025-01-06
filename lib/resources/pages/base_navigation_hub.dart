@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import 'package:taco_stack_app/app/blocs/daily_standup_cubit/daily_standup_cubit.dart';
+import 'package:taco_stack_app/app/blocs/user_info_cubit/user_info_cubit.dart';
 import 'package:taco_stack_app/resources/pages/dashboard_page.dart';
 import 'package:taco_stack_app/resources/pages/settings_page.dart';
 
@@ -21,16 +24,14 @@ class _BaseNavigationHubState extends NavigationHub<BaseNavigationHub> {
       : super(() async {
           return {
             0: NavigationTab(
-              title: trans('home'),
-              page:
-                  DashboardPage(), // create using: 'dart run nylo_framework:main make:stateful_widget home_tab'
-              icon: const Icon(Icons.home),
-              activeIcon: const Icon(Icons.home),
+              title: trans('dashboard'),
+              page: DashboardPage(),
+              icon: const Icon(Icons.dashboard),
+              activeIcon: const Icon(Icons.dashboard),
             ),
             1: NavigationTab(
               title: trans('settings'),
-              page:
-                  SettingsPage(), // create using: 'dart run nylo_framework:main make:stateful_widget settings_tab'
+              page: SettingsPage(),
               icon: const Icon(Icons.settings),
               activeIcon: const Icon(Icons.settings),
             ),
@@ -48,5 +49,20 @@ class _BaseNavigationHubState extends NavigationHub<BaseNavigationHub> {
   @override
   void onTap(int index) {
     super.onTap(index);
+  }
+
+  @override
+  Widget view(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => UserInfoCubit(),
+        ),
+        BlocProvider(
+          create: (context) => DailyStandupCubit(),
+        ),
+      ],
+      child: super.view(context),
+    );
   }
 }
