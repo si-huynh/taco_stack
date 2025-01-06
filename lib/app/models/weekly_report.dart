@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:taco_stack_app/app/blocs/daily_standup_cubit/daily_standup_cubit.dart';
+import 'package:taco_stack_app/app/blocs/reports_management_cubit/reports_management_cubit.dart';
 
 part 'weekly_report.g.dart';
 

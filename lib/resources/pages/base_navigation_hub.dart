@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:taco_stack_app/app/blocs/daily_standup_cubit/daily_standup_cubit.dart';
+import 'package:taco_stack_app/app/blocs/reports_management_cubit/reports_management_cubit.dart';
 import 'package:taco_stack_app/app/blocs/user_info_cubit/user_info_cubit.dart';
 import 'package:taco_stack_app/resources/pages/dashboard_page.dart';
 import 'package:taco_stack_app/resources/pages/settings_page.dart';
@@ -59,7 +59,7 @@ class _BaseNavigationHubState extends NavigationHub<BaseNavigationHub> {
           create: (context) => UserInfoCubit(),
         ),
         BlocProvider(
-          create: (context) => DailyStandupCubit(),
+          create: (context) => ReportsManagementCubit(),
         ),
       ],
       child: super.view(context),

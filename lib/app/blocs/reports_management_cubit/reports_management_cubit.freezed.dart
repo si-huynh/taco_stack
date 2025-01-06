@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'daily_standup_cubit.dart';
+part of 'reports_management_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,51 +14,53 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-DailyStandupState _$DailyStandupStateFromJson(Map<String, dynamic> json) {
-  return _DailyStandupState.fromJson(json);
+ReportsManagementState _$ReportsManagementStateFromJson(
+    Map<String, dynamic> json) {
+  return _ReportsManagementState.fromJson(json);
 }
 
 /// @nodoc
-mixin _$DailyStandupState {
-  DailyStandupStateStatus get status => throw _privateConstructorUsedError;
+mixin _$ReportsManagementState {
+  ReportsManagementStateStatus get status => throw _privateConstructorUsedError;
   List<DailyStandup> get dailyStandups => throw _privateConstructorUsedError;
   WeeklyReport get weeklyReport => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
-  /// Serializes this DailyStandupState to a JSON map.
+  /// Serializes this ReportsManagementState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of DailyStandupState
+  /// Create a copy of ReportsManagementState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DailyStandupStateCopyWith<DailyStandupState> get copyWith =>
+  $ReportsManagementStateCopyWith<ReportsManagementState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DailyStandupStateCopyWith<$Res> {
-  factory $DailyStandupStateCopyWith(
-          DailyStandupState value, $Res Function(DailyStandupState) then) =
-      _$DailyStandupStateCopyWithImpl<$Res, DailyStandupState>;
+abstract class $ReportsManagementStateCopyWith<$Res> {
+  factory $ReportsManagementStateCopyWith(ReportsManagementState value,
+          $Res Function(ReportsManagementState) then) =
+      _$ReportsManagementStateCopyWithImpl<$Res, ReportsManagementState>;
   @useResult
   $Res call(
-      {DailyStandupStateStatus status,
+      {ReportsManagementStateStatus status,
       List<DailyStandup> dailyStandups,
       WeeklyReport weeklyReport,
       String? errorMessage});
 }
 
 /// @nodoc
-class _$DailyStandupStateCopyWithImpl<$Res, $Val extends DailyStandupState>
-    implements $DailyStandupStateCopyWith<$Res> {
-  _$DailyStandupStateCopyWithImpl(this._value, this._then);
+class _$ReportsManagementStateCopyWithImpl<$Res,
+        $Val extends ReportsManagementState>
+    implements $ReportsManagementStateCopyWith<$Res> {
+  _$ReportsManagementStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of DailyStandupState
+  /// Create a copy of ReportsManagementState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -72,7 +74,7 @@ class _$DailyStandupStateCopyWithImpl<$Res, $Val extends DailyStandupState>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as DailyStandupStateStatus,
+              as ReportsManagementStateStatus,
       dailyStandups: null == dailyStandups
           ? _value.dailyStandups
           : dailyStandups // ignore: cast_nullable_to_non_nullable
@@ -90,29 +92,32 @@ class _$DailyStandupStateCopyWithImpl<$Res, $Val extends DailyStandupState>
 }
 
 /// @nodoc
-abstract class _$$DailyStandupStateImplCopyWith<$Res>
-    implements $DailyStandupStateCopyWith<$Res> {
-  factory _$$DailyStandupStateImplCopyWith(_$DailyStandupStateImpl value,
-          $Res Function(_$DailyStandupStateImpl) then) =
-      __$$DailyStandupStateImplCopyWithImpl<$Res>;
+abstract class _$$ReportsManagementStateImplCopyWith<$Res>
+    implements $ReportsManagementStateCopyWith<$Res> {
+  factory _$$ReportsManagementStateImplCopyWith(
+          _$ReportsManagementStateImpl value,
+          $Res Function(_$ReportsManagementStateImpl) then) =
+      __$$ReportsManagementStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {DailyStandupStateStatus status,
+      {ReportsManagementStateStatus status,
       List<DailyStandup> dailyStandups,
       WeeklyReport weeklyReport,
       String? errorMessage});
 }
 
 /// @nodoc
-class __$$DailyStandupStateImplCopyWithImpl<$Res>
-    extends _$DailyStandupStateCopyWithImpl<$Res, _$DailyStandupStateImpl>
-    implements _$$DailyStandupStateImplCopyWith<$Res> {
-  __$$DailyStandupStateImplCopyWithImpl(_$DailyStandupStateImpl _value,
-      $Res Function(_$DailyStandupStateImpl) _then)
+class __$$ReportsManagementStateImplCopyWithImpl<$Res>
+    extends _$ReportsManagementStateCopyWithImpl<$Res,
+        _$ReportsManagementStateImpl>
+    implements _$$ReportsManagementStateImplCopyWith<$Res> {
+  __$$ReportsManagementStateImplCopyWithImpl(
+      _$ReportsManagementStateImpl _value,
+      $Res Function(_$ReportsManagementStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DailyStandupState
+  /// Create a copy of ReportsManagementState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -122,11 +127,11 @@ class __$$DailyStandupStateImplCopyWithImpl<$Res>
     Object? weeklyReport = null,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$DailyStandupStateImpl(
+    return _then(_$ReportsManagementStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as DailyStandupStateStatus,
+              as ReportsManagementStateStatus,
       dailyStandups: null == dailyStandups
           ? _value._dailyStandups
           : dailyStandups // ignore: cast_nullable_to_non_nullable
@@ -145,22 +150,22 @@ class __$$DailyStandupStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DailyStandupStateImpl
+class _$ReportsManagementStateImpl
     with DiagnosticableTreeMixin
-    implements _DailyStandupState {
-  const _$DailyStandupStateImpl(
-      {this.status = DailyStandupStateStatus.initial,
+    implements _ReportsManagementState {
+  const _$ReportsManagementStateImpl(
+      {this.status = ReportsManagementStateStatus.initial,
       final List<DailyStandup> dailyStandups = const [],
       required this.weeklyReport,
       this.errorMessage = null})
       : _dailyStandups = dailyStandups;
 
-  factory _$DailyStandupStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DailyStandupStateImplFromJson(json);
+  factory _$ReportsManagementStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReportsManagementStateImplFromJson(json);
 
   @override
   @JsonKey()
-  final DailyStandupStateStatus status;
+  final ReportsManagementStateStatus status;
   final List<DailyStandup> _dailyStandups;
   @override
   @JsonKey()
@@ -178,14 +183,14 @@ class _$DailyStandupStateImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DailyStandupState(status: $status, dailyStandups: $dailyStandups, weeklyReport: $weeklyReport, errorMessage: $errorMessage)';
+    return 'ReportsManagementState(status: $status, dailyStandups: $dailyStandups, weeklyReport: $weeklyReport, errorMessage: $errorMessage)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'DailyStandupState'))
+      ..add(DiagnosticsProperty('type', 'ReportsManagementState'))
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('dailyStandups', dailyStandups))
       ..add(DiagnosticsProperty('weeklyReport', weeklyReport))
@@ -196,7 +201,7 @@ class _$DailyStandupStateImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DailyStandupStateImpl &&
+            other is _$ReportsManagementStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality()
                 .equals(other._dailyStandups, _dailyStandups) &&
@@ -215,35 +220,35 @@ class _$DailyStandupStateImpl
       weeklyReport,
       errorMessage);
 
-  /// Create a copy of DailyStandupState
+  /// Create a copy of ReportsManagementState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DailyStandupStateImplCopyWith<_$DailyStandupStateImpl> get copyWith =>
-      __$$DailyStandupStateImplCopyWithImpl<_$DailyStandupStateImpl>(
-          this, _$identity);
+  _$$ReportsManagementStateImplCopyWith<_$ReportsManagementStateImpl>
+      get copyWith => __$$ReportsManagementStateImplCopyWithImpl<
+          _$ReportsManagementStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DailyStandupStateImplToJson(
+    return _$$ReportsManagementStateImplToJson(
       this,
     );
   }
 }
 
-abstract class _DailyStandupState implements DailyStandupState {
-  const factory _DailyStandupState(
-      {final DailyStandupStateStatus status,
+abstract class _ReportsManagementState implements ReportsManagementState {
+  const factory _ReportsManagementState(
+      {final ReportsManagementStateStatus status,
       final List<DailyStandup> dailyStandups,
       required final WeeklyReport weeklyReport,
-      final String? errorMessage}) = _$DailyStandupStateImpl;
+      final String? errorMessage}) = _$ReportsManagementStateImpl;
 
-  factory _DailyStandupState.fromJson(Map<String, dynamic> json) =
-      _$DailyStandupStateImpl.fromJson;
+  factory _ReportsManagementState.fromJson(Map<String, dynamic> json) =
+      _$ReportsManagementStateImpl.fromJson;
 
   @override
-  DailyStandupStateStatus get status;
+  ReportsManagementStateStatus get status;
   @override
   List<DailyStandup> get dailyStandups;
   @override
@@ -251,10 +256,10 @@ abstract class _DailyStandupState implements DailyStandupState {
   @override
   String? get errorMessage;
 
-  /// Create a copy of DailyStandupState
+  /// Create a copy of ReportsManagementState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DailyStandupStateImplCopyWith<_$DailyStandupStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ReportsManagementStateImplCopyWith<_$ReportsManagementStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

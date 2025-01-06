@@ -7,15 +7,15 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:taco_stack_app/app/models/daily_standup.dart';
 import 'package:taco_stack_app/app/models/weekly_report.dart';
 
-part 'daily_standup_state.dart';
-part 'daily_standup_cubit.g.dart';
-part 'daily_standup_cubit.freezed.dart';
+part 'reports_management_state.dart';
+part 'reports_management_cubit.g.dart';
+part 'reports_management_cubit.freezed.dart';
 
-class DailyStandupCubit extends Cubit<DailyStandupState> {
-  DailyStandupCubit()
+class ReportsManagementCubit extends Cubit<ReportsManagementState> {
+  ReportsManagementCubit()
       : _weekNo = DateTime.now().weekOfYear,
         super(
-          DailyStandupState(
+          ReportsManagementState(
             weeklyReport: WeeklyReport.placeholder(DateTime.now()),
             dailyStandups: List.generate(7, (index) {
               final monday = DateTime.now().mostRecentMonday;
@@ -37,7 +37,7 @@ class DailyStandupCubit extends Cubit<DailyStandupState> {
       .firstOrNull;
 
   Future<void> fetchDailyStandup() async {
-    emit(state.copyWith(status: DailyStandupStateStatus.loading));
+    emit(state.copyWith(status: ReportsManagementStateStatus.loading));
     try {
       final dailyStandupsResponse = await _supaBaseClient
           .from('daily_standups')
@@ -69,7 +69,7 @@ class DailyStandupCubit extends Cubit<DailyStandupState> {
           weeklyReport:
               weeklyReport ?? WeeklyReport.placeholder(DateTime.now()),
           errorMessage: null,
-          status: DailyStandupStateStatus.loaded,
+          status: ReportsManagementStateStatus.loaded,
         ),
       );
     } catch (e) {
@@ -79,7 +79,7 @@ class DailyStandupCubit extends Cubit<DailyStandupState> {
       emit(
         state.copyWith(
           errorMessage: e.toString(),
-          status: DailyStandupStateStatus.loaded,
+          status: ReportsManagementStateStatus.loaded,
         ),
       );
     }

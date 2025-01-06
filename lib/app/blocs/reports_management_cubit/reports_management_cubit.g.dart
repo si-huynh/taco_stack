@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'daily_standup_cubit.dart';
+part of 'reports_management_cubit.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DailyStandupStateImpl _$$DailyStandupStateImplFromJson(
+_$ReportsManagementStateImpl _$$ReportsManagementStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$DailyStandupStateImpl(
+    _$ReportsManagementStateImpl(
       status: $enumDecodeNullable(
-              _$DailyStandupStateStatusEnumMap, json['status']) ??
-          DailyStandupStateStatus.initial,
+              _$ReportsManagementStateStatusEnumMap, json['status']) ??
+          ReportsManagementStateStatus.initial,
       dailyStandups: (json['dailyStandups'] as List<dynamic>?)
               ?.map((e) => DailyStandup.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -21,17 +21,17 @@ _$DailyStandupStateImpl _$$DailyStandupStateImplFromJson(
       errorMessage: json['errorMessage'] as String? ?? null,
     );
 
-Map<String, dynamic> _$$DailyStandupStateImplToJson(
-        _$DailyStandupStateImpl instance) =>
+Map<String, dynamic> _$$ReportsManagementStateImplToJson(
+        _$ReportsManagementStateImpl instance) =>
     <String, dynamic>{
-      'status': _$DailyStandupStateStatusEnumMap[instance.status]!,
+      'status': _$ReportsManagementStateStatusEnumMap[instance.status]!,
       'dailyStandups': instance.dailyStandups,
       'weeklyReport': instance.weeklyReport,
       'errorMessage': instance.errorMessage,
     };
 
-const _$DailyStandupStateStatusEnumMap = {
-  DailyStandupStateStatus.initial: 'initial',
-  DailyStandupStateStatus.loading: 'loading',
-  DailyStandupStateStatus.loaded: 'loaded',
+const _$ReportsManagementStateStatusEnumMap = {
+  ReportsManagementStateStatus.initial: 'initial',
+  ReportsManagementStateStatus.loading: 'loading',
+  ReportsManagementStateStatus.loaded: 'loaded',
 };

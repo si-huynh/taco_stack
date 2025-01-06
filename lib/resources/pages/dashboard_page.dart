@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:taco_stack_app/app/blocs/daily_standup_cubit/daily_standup_cubit.dart';
+import 'package:taco_stack_app/app/blocs/reports_management_cubit/reports_management_cubit.dart';
 import 'package:taco_stack_app/app/models/daily_standup.dart';
 import 'package:taco_stack_app/app/models/weekly_report.dart';
 import 'package:taco_stack_app/resources/pages/daily_standup_form_page.dart';
@@ -28,7 +28,7 @@ class _DashboardPageState extends NyState<DashboardPage> {
 
   @override
   Widget view(BuildContext context) {
-    return BlocBuilder<DailyStandupCubit, DailyStandupState>(
+    return BlocBuilder<ReportsManagementCubit, ReportsManagementState>(
       builder: (context, state) => Scaffold(
         body: CustomScrollView(
           slivers: [

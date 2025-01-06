@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taco_stack_app/app/blocs/daily_standup_cubit/daily_standup_cubit.dart';
+import 'package:taco_stack_app/app/blocs/reports_management_cubit/reports_management_cubit.dart';
 import 'package:taco_stack_app/app/models/daily_standup.dart';
 
 import '/app/controllers/controller.dart';
 
 class DailyStandupFormController extends Controller {
-  late DailyStandupCubit _dailyStandupCubit;
+  late ReportsManagementCubit _reportsManagementCubit;
 
   @override
   bool get singleton => true;
@@ -15,7 +15,7 @@ class DailyStandupFormController extends Controller {
   @override
   DailyStandupFormController construct(BuildContext context) {
     super.construct(context);
-    _dailyStandupCubit = context.read<DailyStandupCubit>();
+    _reportsManagementCubit = context.read<ReportsManagementCubit>();
     return this;
   }
 
@@ -24,6 +24,6 @@ class DailyStandupFormController extends Controller {
     DateTime date,
   ) async {
     await Future.delayed(const Duration(seconds: 1));
-    return _dailyStandupCubit.createDailyStandup(data, date);
+    return _reportsManagementCubit.createDailyStandup(data, date);
   }
 }
