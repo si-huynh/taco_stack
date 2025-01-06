@@ -39,13 +39,16 @@ class ReportsManagementCubit extends Cubit<ReportsManagementState> {
   Future<void> fetchDailyStandup() async {
     emit(state.copyWith(status: ReportsManagementStateStatus.loading));
     try {
+      final userId = Session.fromJson(Auth.data())?.user.id;
       final dailyStandupsResponse = await _supaBaseClient
           .from('daily_standups')
           .select()
+          .eq('user_id', userId!)
           .eq('week_no', _weekNo);
       final weeklyReportResponse = await _supaBaseClient
           .from('weekly_reports')
           .select()
+          .eq('user_id', userId)
           .eq('week_no', _weekNo);
 
       final dailyStandups =
