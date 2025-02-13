@@ -5,6 +5,8 @@ import 'package:gap/gap.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:taco_stack_app/app/controllers/authentication_controller.dart';
 import 'package:taco_stack_app/app/forms/register_form.dart';
+import 'package:taco_stack_app/app/models/github_info.dart';
+import 'package:taco_stack_app/app/networking/api_service.dart';
 import 'package:taco_stack_app/resources/pages/sign_in_page.dart';
 import 'package:taco_stack_app/resources/themes/styles/custom/util.dart';
 import 'package:taco_stack_app/resources/widgets/buttons/buttons.dart';
@@ -15,11 +17,12 @@ class SignUpPage extends NyStatefulWidget<AuthenticationController> {
   static RouteView path = ('/sign-up', (_) => SignUpPage());
 }
 
-class _SignUpPageState extends NyPage<SignUpPage> {
+class _SignUpPageState extends NyPage<SignUpPage>
+    with HasApiService<ApiService> {
   final _registerForm = RegisterForm();
 
   @override
-  Function() get init => () {
+  Function() get init => () async {
         if (kDebugMode) {
           _registerForm.initialData(() {
             return {
@@ -30,6 +33,14 @@ class _SignUpPageState extends NyPage<SignUpPage> {
               'password': 'passworD@123',
             };
           });
+
+          onApiSuccess((response, data) {
+            if (kDebugMode) {
+              print('Response: ${GithubInfo.fromJson(response.data).toJson()}');
+            }
+          });
+
+          await apiService.githubInfo();
         }
       };
 

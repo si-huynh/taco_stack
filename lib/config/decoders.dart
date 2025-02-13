@@ -1,3 +1,5 @@
+import 'package:taco_stack_app/app/models/github_info.dart';
+
 import '/app/controllers/authentication_controller.dart';
 import '/app/controllers/daily_standup_form_controller.dart';
 import '/app/controllers/dashboard_controller.dart';
@@ -15,6 +17,7 @@ import '/app/networking/api_service.dart';
 
 final Map<Type, dynamic> modelDecoders = {
   Map<String, dynamic>: (data) => Map<String, dynamic>.from(data),
+  GithubInfo: GithubInfo.fromJson,
 };
 
 /* API Decoders

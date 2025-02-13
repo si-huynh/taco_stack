@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:taco_stack_app/app/models/github_info.dart';
 
 import '/config/decoders.dart';
 
@@ -39,8 +40,8 @@ class ApiService extends NyApiService {
   }
 
   /// Example to fetch the Nylo repository info from Github
-  Future githubInfo() async {
-    return network(
+  Future<GithubInfo?> githubInfo() async {
+    return network<GithubInfo>(
       request: (request) =>
           request.get('https://api.github.com/repos/nylo-core/nylo'),
       cacheKey: 'github_nylo_info', // Optional: Cache the response
