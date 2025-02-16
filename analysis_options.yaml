@@ -84,7 +84,6 @@ linter:
     prefer_void_to_null: true
     throw_in_finally: true
     unnecessary_statements: true
-    unsafe_html: true
     use_key_in_widget_constructors: true
     always_put_control_body_on_new_line: true
     avoid_annotating_with_dynamic: true

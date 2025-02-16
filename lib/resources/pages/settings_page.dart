@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:taco_stack_app/resources/themes/styles/custom/util.dart';
 import 'package:taco_stack_app/resources/widgets/profile_widget.dart';
 import 'package:taco_stack_app/src/gen/assets.gen.dart';
 
@@ -88,19 +87,7 @@ class _SettingsPageState extends NyState<SettingsPage> {
           final item = settingsItems[index];
           return ListTile(
             leading: Icon(item.icon),
-            trailing: Wrap(
-              alignment: WrapAlignment.center,
-              runAlignment: WrapAlignment.center,
-              children: [
-                Text(
-                  item.subTrailing,
-                  style: context.textTheme().bodyMedium?.copyWith(
-                        color: context.theme.colorScheme.surfaceTint,
-                      ),
-                ),
-                const Icon(Icons.arrow_right),
-              ],
-            ),
+            trailing: const Icon(Icons.arrow_right),
             title: Text(item.title),
             onTap: item.onTap,
           );
@@ -141,12 +128,9 @@ class _SettingItem {
     required this.icon,
     required this.title,
     required this.onTap,
-    // ignore: unused_element
-    this.subTrailing = '',
   });
 
   final IconData icon;
   final String title;
-  final String subTrailing;
   final VoidCallback onTap;
 }
