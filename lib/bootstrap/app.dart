@@ -58,7 +58,16 @@ class Main extends StatelessWidget {
                     initialRoute: initialRoute,
                     onGenerateRoute: onGenerateRoute,
                     onUnknownRoute: onUnknownRoute,
-                    theme: ThemeProvider.themeOf(context).data,
+                    theme: ThemeProvider.themeOf(context).data.copyWith(
+                          pageTransitionsTheme: const PageTransitionsTheme(
+                            builders: {
+                              TargetPlatform.iOS:
+                                  CupertinoPageTransitionsBuilder(),
+                              TargetPlatform.android:
+                                  CupertinoPageTransitionsBuilder(),
+                            },
+                          ),
+                        ),
                     localeResolutionCallback: (locale, supportedLocales) {
                       return supportedLocales.firstWhere(
                         (item) => item.languageCode == state.localeName,

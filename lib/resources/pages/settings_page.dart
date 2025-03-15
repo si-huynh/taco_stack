@@ -1,4 +1,5 @@
 import 'package:app_settings/app_settings.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -20,6 +21,14 @@ class _SettingsPageState extends NyState<SettingsPage> {
   Null Function() get init => () {};
 
   @override
+  dynamic stateUpdated(data) {
+    if (kDebugMode) {
+      print('stateUpdated: $data');
+    }
+    return super.stateUpdated(data);
+  }
+
+  @override
   Widget view(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
@@ -30,7 +39,7 @@ class _SettingsPageState extends NyState<SettingsPage> {
             leadingWidth: 196,
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: controller.updateSettingsNumber,
                 icon: const Icon(FontAwesomeIcons.magnifyingGlass),
               ),
               const Gap(8),

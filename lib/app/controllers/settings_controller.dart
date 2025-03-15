@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:taco_stack_app/app/blocs/app_settings_cubit/app_settings_cubit.dart';
+import 'package:taco_stack_app/resources/pages/settings_page.dart';
 
 import '/app/controllers/controller.dart';
 
@@ -13,6 +14,9 @@ class SettingsController extends Controller {
 
   @override
   bool get singleton => true;
+
+  @override
+  String get state => SettingsPage.path.name;
 
   @override
   SettingsController construct(BuildContext context) {
@@ -39,5 +43,14 @@ class SettingsController extends Controller {
     } catch (e) {
       throw Exception('Authentication failed');
     }
+  }
+
+  void updateSettingsNumber() {
+    updateState(
+      state,
+      data: {
+        'settingsNumber': 10,
+      },
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,6 +25,8 @@ class _SignUpPageState extends NyPage<SignUpPage>
   @override
   Function() get init => () async {
         if (kDebugMode) {
+          final isLoggedIn = await Auth.isAuthenticated();
+          print('isLoggedIn: $isLoggedIn');
           _registerForm.initialData(() {
             return {
               'first_name': 'John',
@@ -67,7 +70,12 @@ class _SignUpPageState extends NyPage<SignUpPage>
                   Text(trans('alreadyHaveAnAccount')),
                   TextButton(
                     onPressed: () {
-                      routeTo(SignInPage.path);
+                      SignInPage.path.navigateTo();
+                      // Navigator.of(context).push(
+                      //   CupertinoPageRoute(
+                      //     builder: (context) => SignInPage(),
+                      //   ),
+                      // );
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
